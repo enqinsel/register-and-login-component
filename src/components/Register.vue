@@ -11,15 +11,27 @@ const email = ref("")
 const phone = ref("")
 const password = ref("")
 
+
 const isDisabled = computed(() => {
-    if((name.value && email.value && phone.value && password.value).length > 1){
+    if ((name.value && email.value && phone.value && password.value).length > 1) {
         return true
-    }else{
+    } else {
         return false
     }
 })
 
+const obj = {
+    "name": name.value,
+    "email": email.value,
+    "phone": phone.value,
+    "password": password.value
+}
 
+
+function registerHandler() {
+    const task = localStorage.setItem("task", JSON.stringify(obj))
+    return task
+}
 
 </script>
 
@@ -28,7 +40,7 @@ const isDisabled = computed(() => {
         <h1>Register</h1>
         <div>
             {{name}}
-            <InputName v-model:name="name"></InputName> <br><br>
+            <InputName v-model:name="name" placeholder="Full Name"></InputName> <br><br>
             {{email}}
             <InputMail v-model:email="email"></InputMail> <br><br>
             {{phone}}
@@ -44,3 +56,19 @@ const isDisabled = computed(() => {
         </div>
     </div>
 </template>
+
+
+<style scoped>
+button {
+    width: 270px;
+
+    background: #AD00FF;
+    border-radius: 16px;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+h1{
+    color: #2244F4;
+}
+</style>
