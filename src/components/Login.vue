@@ -2,6 +2,9 @@
 import InputName from "./Inputs/InputName.vue"
 import InputPassword from "./Inputs/InputPassword.vue"
 import { ref } from "vue"
+import { useRouter } from "vue-router"
+
+const router = useRouter()
 
 const name = ref("")
 const password = ref("")
@@ -13,12 +16,12 @@ function loginHandler(){
     const user = JSON.parse(localStorage.getItem("user"))
 
     if((name.value === user.name) && (password.value === user.password)){
-        console.log("eslesiyor");
-    
+        router.push("/profile");
     }else{
         console.log("nooooo");
     }
 }
+
 </script>
 
 <template>
