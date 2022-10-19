@@ -6,23 +6,15 @@ import { ref } from "vue"
 const name = ref("")
 const password = ref("")
 
-const localName = localStorage.getItem("name")
-const localPassword = localStorage.getItem("password")
-
-console.log(localName);
-console.log(localPassword);
 
 
 
 function loginHandler(){
-    console.log(name.value);
-    console.log(localName);
-    console.log(password.value);
-    console.log(localPassword);
-    if((name.value == localName) && (password.value == localPassword)){
-        console.log("eslesiyor");
-       
+    const user = JSON.parse(localStorage.getItem("user"))
 
+    if((name.value === user.name) && (password.value === user.password)){
+        console.log("eslesiyor");
+    
     }else{
         console.log("nooooo");
     }

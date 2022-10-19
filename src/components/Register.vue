@@ -3,62 +3,56 @@ import InputName from "./Inputs/InputName.vue";
 import InputMail from "./Inputs/InputMail.vue";
 import InputPhone from "./Inputs/InputPhone.vue";
 import InputPassword from "./Inputs/InputPassword.vue"
-import { ref, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 
 
-const name = ref("")
-const email = ref("")
-const phone = ref("")
-const password = ref("")
-
+const form = ref({
+    name : "",
+    email : "",
+    phone : "",
+    password : ""
+})
 
 const isDisabled = computed(() => {
-    if ((name.value && email.value && phone.value && password.value).length > 1) {
+    if ((form.value.name && form.value.email && form.value.phone && form.value.password).length > 1) {
         return true
     } else {
         return false
     }
 })
 
-// const obj = {
-//     "name": name.value,
-//     "email": email.value,
-//     "phone": phone.value,
-//     "password": password.value
-// }
+
 
 const showRegister = ref(true)
-// function registerHandler() {
-//     const task = localStorage.setItem("task", JSON.stringify(obj))
-//     return task
-// }
-
 function registerHandler() {
-    localStorage.setItem("name", name.value)
-    localStorage.setItem("email", email.value)
-    localStorage.setItem("phone", phone.value)
-    localStorage.setItem("password", password.value)
+    const task = localStorage.setItem("user", JSON.stringify(form.value))
     showRegister.value = false
-    const localName = localStorage.getItem("name")
-    const localPassword = localStorage.getItem("password")
-
-    console.log(localName);
-    console.log(localPassword);
+    return task
 }
+
+const clickHandler = () => {
+    showRegister.value = false
+}
+
+onMounted(() => {
+    const user = localStorage.getItem("user")
+    user && (showRegister.value = false)
+})
+
 </script>
 
 <template>
     <div v-if="showRegister" class="container">
         <h1>Register</h1>
         <div>
-            <InputName v-model:name="name" placeholder="Full Name"></InputName>
-            <InputMail v-model:email="email"></InputMail>
-            <InputPhone v-model:phone="phone"></InputPhone>
-            <InputPassword v-model:password="password" placeholder="Password"></InputPassword>
+            <InputName v-model:name="form.name" placeholder="Full Name"></InputName>
+            <InputMail v-model:email="form.email"></InputMail>
+            <InputPhone v-model:phone="form.phone"></InputPhone>
+            <InputPassword v-model:password="form.password" placeholder="Password"></InputPassword>
         </div>
         <div>
             <button @click="registerHandler" :disabled="!isDisabled">Register</button>
-            <button>Have Account? Sign In</button>
+            <button @click="clickHandler">Have Account? Sign In</button>
         </div>
     </div>
 </template>
@@ -67,11 +61,17 @@ function registerHandler() {
 <style scoped>
 button {
     width: 270px;
-
+    color: white;
     background: #AD00FF;
     border-radius: 16px;
     padding: 5px;
     margin-left: 5px;
+    border: 0;
+}
+
+button:disabled{
+    opacity: 0.5;
+    background: #505050;
 }
 
 h1 {
@@ -79,7 +79,6 @@ h1 {
 }
 
 .container {
-
     width: 570px;
     height: 699px;
     display: grid;
