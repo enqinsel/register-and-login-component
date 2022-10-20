@@ -12,13 +12,13 @@ const showError = ref(false)
 
 
 
-function loginHandler(){
+function loginHandler() {
     const user = JSON.parse(localStorage.getItem("user"))
 
-    if((name.value === user.name) && (password.value === user.password)){
+    if ((name.value === user.name) && (password.value === user.password)) {
         router.push("/profile");
     }
-    else{
+    else {
         showError.value = true
     }
 }
@@ -34,17 +34,15 @@ function loginHandler(){
         </div>
         <div>
             <button @click="loginHandler">Login</button>
-            <p v-if="showError" style="color:red">Giriş Hatalı! Bilgileri tekrar giriniz.</p>
+            <p v-if="showError" style="color:red">Incorrect Login! Re-enter the information.</p>
         </div>
     </div>
 </template>
 
 
 <style scoped>
-
-h1{
+h1 {
     color: #0029FF;
-    /* text-align: center; */
 }
 
 button {
@@ -52,13 +50,12 @@ button {
     background: #0029FF;
     border-radius: 16px;
     padding: 10px;
-
     color: white;
     margin-left: 5px;
     margin-bottom: 20px;
 }
 
-.container{
+.container {
     width: 475px;
     height: 507px;
     display: grid;

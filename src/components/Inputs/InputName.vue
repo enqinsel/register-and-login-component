@@ -17,8 +17,8 @@ const isValid = computed(() => {
 
 <template>
     <input type="text" class="name" :value="props.name" :placeholder="props.placeholder" @input="nameHandler">
-    <p class="warning" v-if="!isValid">Geçersiz isim</p>
-    
+    <p class="warning" v-if="!isValid">Invalid Name</p>
+
 </template>
 
 
@@ -34,11 +34,11 @@ const isValid = computed(() => {
     border-radius: 15px;
 }
 
-.warning{
+.warning {
     width: 348px;
     margin-bottom: 20px;
     background-color: rgb(255, 255, 255);
-    border: 1px dotted #cb000094 ;
+    border: 1px dotted #cb000094;
     box-shadow: 0px 4px 4px rgba(255, 60, 0, 0.25);
     border-radius: 15px 15px 0px 0px;
     margin-left: 50%;
@@ -49,6 +49,4 @@ const isValid = computed(() => {
     padding: 5px;
     transition: all 0.3s ease;
 }
-
-
 </style>

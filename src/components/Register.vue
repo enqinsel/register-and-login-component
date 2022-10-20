@@ -7,10 +7,10 @@ import { ref, computed, onMounted } from "vue"
 
 
 const form = ref({
-    name : "",
-    email : "",
-    phone : "",
-    password : ""
+    name: "",
+    email: "",
+    phone: "",
+    password: ""
 })
 
 const isDisabled = computed(() => {
@@ -70,7 +70,7 @@ button {
     cursor: pointer;
 }
 
-button:disabled{
+button:disabled {
     opacity: 0.5;
     background: #505050;
 }

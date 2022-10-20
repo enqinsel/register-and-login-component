@@ -14,7 +14,7 @@ const isValid = computed(() => {
 
 <template>
     <input type="text" class="email" :value="props.email" placeholder="E-mail" @input="emailHandler">
-    <p class="warning" v-if="!isValid">Geçersiz E-mail</p>
+    <p class="warning" v-if="!isValid">Invalid E-mail</p>
 </template>
 
 
@@ -30,11 +30,11 @@ const isValid = computed(() => {
     border-radius: 15px;
 }
 
-.warning{
+.warning {
     width: 348px;
     margin-bottom: 20px;
     background-color: rgb(255, 255, 255);
-    border: 1px dotted #cb000094 ;
+    border: 1px dotted #cb000094;
     box-shadow: 0px 4px 4px rgba(255, 60, 0, 0.25);
     border-radius: 15px 15px 0px 0px;
     margin-left: 50%;

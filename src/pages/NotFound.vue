@@ -18,8 +18,7 @@ function clickHandler() {
 </template>
 
 <style scoped>
-
-button{
+button {
     width: 250px;
     height: 70px;
     background: #0029FF;
@@ -35,16 +34,19 @@ button{
     cursor: pointer;
 
     animation: blinker 1.5s linear infinite;
-      font-size: 20px;
-      font-weight: bold;
-      font-family: sans-serif;
-      }
-      @keyframes blinker {  
-      50% { opacity: 0; }
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
 
 
-    
+
 button:before {
     content: "";
     z-index: -1;
@@ -53,7 +55,7 @@ button:before {
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(-45deg, #ff3d00 0%, #0400ff 100% );
+    background: linear-gradient(-45deg, #ff3d00 0%, #0400ff 100%);
     transform: translate3d(0px, 20px, 0) scale(0.95);
     filter: blur(10px);
     opacity: var(0.7);
@@ -73,11 +75,11 @@ button::after {
     border-radius: inherit;
 }
 
-h1{
+h1 {
     color: red;
 }
 
-div{
+div {
     width: 570px;
     height: 250px;
     display: grid;

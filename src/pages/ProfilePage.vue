@@ -32,8 +32,6 @@ const logoutHandler = () => {
         <button @click="logoutHandler">Delete Account</button>
     </div>
 
-
-
 </template>
 
 
@@ -49,7 +47,6 @@ const logoutHandler = () => {
 
 h2 {
     color: #0029FF;
-    /* text-align: center; */
 }
 
 button {

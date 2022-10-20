@@ -8,13 +8,15 @@ const passwordHandler = (event) => {
 }
 
 const isValid = computed(() => {
-    return  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(props.password);
- })
+    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(props.password);
+})
 </script>
 
 <template>
-    <input type="password" class="password" :value="props.password" :placeholder="props.placeholder" @input="passwordHandler">
-    <p class="warning" v-if="!isValid">At least one upper case English letter, At least one lower case English letter,At least one digit, At least one special character (#?!@$%^&*-), Minimum eight in length </p>
+    <input type="password" class="password" :value="props.password" :placeholder="props.placeholder"
+        @input="passwordHandler">
+    <p class="warning" v-if="!isValid">At least one upper case English letter, At least one lower case English letter,At
+        least one digit, At least one special character (#?!@$%^&*-), Minimum eight in length </p>
 </template>
 
 
@@ -30,11 +32,10 @@ const isValid = computed(() => {
     border-radius: 15px;
 }
 
-.warning{
+.warning {
     width: 410px;
-    
     background-color: rgb(255, 255, 255);
-    border: 1px dotted #cb000094 ;
+    border: 1px dotted #cb000094;
     box-shadow: 0px 4px 4px rgba(255, 60, 0, 0.25);
     border-radius: 15px 15px 0px 0px;
     margin-left: 50%;
