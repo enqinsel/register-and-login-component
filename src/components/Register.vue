@@ -67,6 +67,7 @@ button {
     padding: 5px;
     margin-left: 5px;
     border: 0;
+    cursor: pointer;
 }
 
 button:disabled{

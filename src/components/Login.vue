@@ -17,7 +17,8 @@ function loginHandler(){
 
     if((name.value === user.name) && (password.value === user.password)){
         router.push("/profile");
-    }else{
+    }
+    else{
         showError.value = true
     }
 }
