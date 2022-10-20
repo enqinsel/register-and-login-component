@@ -8,7 +8,7 @@ const router = useRouter()
 
 const name = ref("")
 const password = ref("")
-
+const showError = ref(false)
 
 
 
@@ -18,7 +18,7 @@ function loginHandler(){
     if((name.value === user.name) && (password.value === user.password)){
         router.push("/profile");
     }else{
-        console.log("nooooo");
+        showError.value = true
     }
 }
 
@@ -33,6 +33,7 @@ function loginHandler(){
         </div>
         <div>
             <button @click="loginHandler">Login</button>
+            <p v-if="showError" style="color:red">Giriş Hatalı! Bilgileri tekrar giriniz.</p>
         </div>
     </div>
 </template>
